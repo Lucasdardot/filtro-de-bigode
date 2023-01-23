@@ -11,6 +11,7 @@ function preload(){
 
 function setup(){
     canvas = createCanvas (300,300) 
+    canvas.center()
     video = createCapture(VIDEO)
     video.size(300,300)
     video.hide()
@@ -25,15 +26,15 @@ function modelLoaded(){
 function gotPoses(results){
     if( results.length>0){
         console.log(results)
-        narizx = results[0].pose.nose.x
-        narizy = results[0].pose.nose.y
+        narizx = results[0].pose.nose.x -51
+        narizy = results[0].pose.nose.y -6
     }
 }
 
 function draw(){
 
     image(video,0,0,300,300)
-    image(filtro,narizx,narizy,150,150)
+    image(filtro,narizx,narizy,100,60)
 
 }
 
